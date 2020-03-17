@@ -11,31 +11,36 @@ class AlbumsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let albums = [Album]()
-    var artist: Artist!
-    
+    var albums = [Album]()
+    var artist: Artist?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        tableView.delegate = self
         
-        //self.title = artist.name
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    //MARK: Passing data forward
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "albumDetailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                var selectedAlbum = albums[indexPath.row]
+                selectedAlbum.songs = Stub.songs
+                
+                let albumDetailVC = segue.destination as! AlbumDetailViewController
+                albumDetailVC.album = selectedAlbum
+            }
+            
+        }
     }
-    */
 
 }
 
 extension AlbumsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("albums.count: \(albums.count)")
         return albums.count
     }
     

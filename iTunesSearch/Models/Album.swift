@@ -18,5 +18,5 @@ struct Album { //class
     let numberOfTracks: Int
     let releaseDate: Date
     let primaryGenre: Genre
-    let songs = [Song]()
+    var songs = [Song]()
 }

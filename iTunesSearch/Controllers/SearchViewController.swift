@@ -11,8 +11,7 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var data = [Artist]()
-    //var testArray = ["Hi"]
+    var data = [Artist]()
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -25,7 +24,6 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        //tableView.register(UINib(nibName: "ArtistCell", bundle: nil), forCellReuseIdentifier: "artistCell")
         tableView.tableHeaderView = searchController.searchBar
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
@@ -37,6 +35,20 @@ class SearchViewController: UIViewController {
         
     }
 
+    //MARK: Passing data forward
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAlbumsSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                var artist = data[indexPath.row]
+                artist.albums = Stub.albums
+                
+                let albumVC = segue.destination as! AlbumsViewController
+                albumVC.albums = artist.albums
+            }
+        }
+    }
+    
+    
 }
 
 extension SearchViewController: UITableViewDataSource {
@@ -45,7 +57,7 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath)// as! ArtistCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath) as! ArtistCell
         
         let artist = data[indexPath.row]
         cell.textLabel?.text = artist.name
