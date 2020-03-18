@@ -28,6 +28,7 @@ class AlbumCell: UITableViewCell {
     }
     
     func configure(with viewModel: AlbumCellViewModel) {
+        artworkView.image = viewModel.artwork
         albumTitle.text = viewModel.title
         genreLabel.text = viewModel.genre
         releaseDateLabel.text = viewModel.releaseDate

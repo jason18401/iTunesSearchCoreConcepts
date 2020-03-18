@@ -6,6 +6,13 @@
 //
 
 import Foundation
+import UIKit
+
+enum AlbumArtworkState {
+    case placeholder
+    case download
+    case failed
+}
 
 //names dont have to match returned names?
 struct Album { //class
@@ -13,10 +20,12 @@ struct Album { //class
     let artistName: String
     let name: String
     let censoredName: String
-    let artworkUrl: String
+    var artworkUrl: String
     let isExplicit: Bool
     let numberOfTracks: Int
     let releaseDate: Date
     let primaryGenre: Genre
     var songs = [Song]()
+    var artwork: UIImage?
+    var artworkState: AlbumArtworkState = .placeholder
 }

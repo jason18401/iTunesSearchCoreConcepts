@@ -30,6 +30,10 @@
 		A3B92C4024207338005E2D2D /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B92C3F24207338005E2D2D /* SongCell.swift */; };
 		A3B92C43242101A5005E2D2D /* ItunesMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B92C42242101A5005E2D2D /* ItunesMedia.swift */; };
 		A3B92C4524210317005E2D2D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B92C4424210317005E2D2D /* Endpoint.swift */; };
+		A3B92C4724214C27005E2D2D /* ItunesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B92C4624214C27005E2D2D /* ItunesEntity.swift */; };
+		A3B92C4924216C7B005E2D2D /* QueryItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B92C4824216C7B005E2D2D /* QueryItemProvider.swift */; };
+		A3B92C4C2421AE2A005E2D2D /* ArtworkDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B92C4B2421AE2A005E2D2D /* ArtworkDownloader.swift */; };
+		A3B92C4E2421BF5C005E2D2D /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B92C4D2421BF5C005E2D2D /* PendingOperations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		A3B92C3F24207338005E2D2D /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		A3B92C42242101A5005E2D2D /* ItunesMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesMedia.swift; sourceTree = "<group>"; };
 		A3B92C4424210317005E2D2D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A3B92C4624214C27005E2D2D /* ItunesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesEntity.swift; sourceTree = "<group>"; };
+		A3B92C4824216C7B005E2D2D /* QueryItemProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryItemProvider.swift; sourceTree = "<group>"; };
+		A3B92C4B2421AE2A005E2D2D /* ArtworkDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkDownloader.swift; sourceTree = "<group>"; };
+		A3B92C4D2421BF5C005E2D2D /* PendingOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,7 @@
 		A389DC732411FA94007EB7D8 /* iTunesSearch */ = {
 			isa = PBXGroup;
 			children = (
+				A3B92C4A2421AE10005E2D2D /* Networking */,
 				A389DCA024173C84007EB7D8 /* View Models */,
 				A389DC8A2411FABC007EB7D8 /* Controllers */,
 				A389DC892411FAB4007EB7D8 /* Views */,
@@ -154,8 +163,19 @@
 			children = (
 				A3B92C42242101A5005E2D2D /* ItunesMedia.swift */,
 				A3B92C4424210317005E2D2D /* Endpoint.swift */,
+				A3B92C4624214C27005E2D2D /* ItunesEntity.swift */,
+				A3B92C4824216C7B005E2D2D /* QueryItemProvider.swift */,
 			);
 			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		A3B92C4A2421AE10005E2D2D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A3B92C4B2421AE2A005E2D2D /* ArtworkDownloader.swift */,
+				A3B92C4D2421BF5C005E2D2D /* PendingOperations.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,11 +258,15 @@
 				A389DC9724158E4E007EB7D8 /* SearchViewController.swift in Sources */,
 				A389DC9524158A1E007EB7D8 /* Stub.swift in Sources */,
 				A389DC8C2411FAD5007EB7D8 /* Artist.swift in Sources */,
+				A3B92C4C2421AE2A005E2D2D /* ArtworkDownloader.swift in Sources */,
+				A3B92C4924216C7B005E2D2D /* QueryItemProvider.swift in Sources */,
 				A389DC772411FA94007EB7D8 /* SceneDelegate.swift in Sources */,
 				A389DC8E2411FBF1007EB7D8 /* Genre.swift in Sources */,
 				A3B92C4024207338005E2D2D /* SongCell.swift in Sources */,
 				A3B92C4524210317005E2D2D /* Endpoint.swift in Sources */,
 				A389DC9A2415F0FF007EB7D8 /* ArtistCell.swift in Sources */,
+				A3B92C4E2421BF5C005E2D2D /* PendingOperations.swift in Sources */,
+				A3B92C4724214C27005E2D2D /* ItunesEntity.swift in Sources */,
 				A389DC902411FD26007EB7D8 /* Album.swift in Sources */,
 				A3B92C43242101A5005E2D2D /* ItunesMedia.swift in Sources */,
 				A389DC9F241737FB007EB7D8 /* AlbumCell.swift in Sources */,

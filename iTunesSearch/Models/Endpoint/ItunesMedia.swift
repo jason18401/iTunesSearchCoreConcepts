@@ -10,7 +10,7 @@ import Foundation
 enum ItunesMedia {
     case movie
     case podcast
-    case music
+    case music(entity: MusicEntity?)
     case musicVideo
     case audiobook
     case shortFilm

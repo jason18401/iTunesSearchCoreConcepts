@@ -12,7 +12,7 @@ class AlbumsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var albums = [Album]()
-    var artist: Artist?
+    var pendingOperations = PendingOperations()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +50,34 @@ extension AlbumsViewController: UITableViewDataSource {
         let viewModel = AlbumCellViewModel(album: album)
         cell.configure(with: viewModel)
         cell.accessoryType = .disclosureIndicator
+        
+        if album.artworkState == .placeholder {
+            downloadArtworkForAlbum(album, atIndexPath: indexPath)
+        }
+    
+        
         return cell
     }
     
-    
+    func downloadArtworkForAlbum(_ album: Album, atIndexPath indexPath: IndexPath) {
+        if let _ = pendingOperations.downloadsInProgress[indexPath] {
+            return
+        }
+        let downloader = ArtworkDownloader(album: album)
+        downloader.completionBlock = {
+            if downloader.isCancelled {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+        
+        pendingOperations.downloadsInProgress[indexPath] = downloader //keep track in dict
+        pendingOperations.downloadQueue.addOperation(downloader)
+    }
     
 }
 
